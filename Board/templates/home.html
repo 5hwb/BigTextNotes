@@ -1,18 +1,11 @@
 {% extends "./base.html" %}
 {% block content %}
+<div>
+    <h1>Home Whiteboard</h1>
+    <div class="big-note"><p>Todo: get new toothpaste</p></div>
+    <div class="big-note"><p>Prepare for trip to Chatswood</p></div>
+    <a href="{% url 'addPost' %}"><p style="font-size: 24px">Create post</p></a>
+</div>
 
-    <div>
-        <h1>Home Whiteboard</h1>
-        <div class="big-note"><p>Todo: get new toothpaste</p></div>
-        <div class="big-note"><p>Prepare for trip to Chatswood</p></div>
-    </div>
-
-    <a href="#profile"><span class="glyphicon glyphicon-pencil"></span> Create post</a>
-
-    <script>
-        $(function() {
-            $('#myTab li:first-child a').tab('show')
-        })
-    </script>
 
 {% endblock %}

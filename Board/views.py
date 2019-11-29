@@ -10,3 +10,9 @@ def mainPage(request):
     #    'username': username,
     }
     return render(request, 'home.html', context)
+
+def addPost(request):
+    context = {
+        'title': "Home Whiteboard by 5hwb",
+    }
+    return render(request, 'add_post.html', context)

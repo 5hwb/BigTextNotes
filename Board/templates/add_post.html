@@ -1,0 +1,14 @@
+{% extends "./base.html" %}
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <p>
+        <span style="display: inline-block;width: 70px;">demo: </span>
+        <textarea name="demo" style="width:300px;height:100px">{{ algorithm_info.demo }}</textarea>
+    </p>
+    <p>
+        <input type="submit" value="save">
+    </p>
+</form>
+{% endblock %}
