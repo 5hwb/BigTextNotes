@@ -92,3 +92,7 @@ h2 {
 	color: #fff;
 	background-color: #006F37;
 }
+
+.big-note p {
+	font-size: 36px;
+}
