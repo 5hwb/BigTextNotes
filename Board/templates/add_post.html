@@ -4,11 +4,11 @@
     {% csrf_token %}
 
     <p>
-        <span style="display: inline-block;width: 70px;">demo: </span>
-        <textarea name="demo" style="width:300px;height:100px">{{ algorithm_info.demo }}</textarea>
+        <span style="display: inline-block;width: 70px;">Post: </span>
+        <textarea name="postText" style="width:300px; height:100px; color:black"></textarea>
     </p>
     <p>
-        <input type="submit" value="save">
+        <input type="submit" value="save" style="color:black">
     </p>
 </form>
 {% endblock %}
