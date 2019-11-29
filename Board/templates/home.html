@@ -2,8 +2,9 @@
 {% block content %}
 <div>
     <h1>Home Whiteboard</h1>
-    <div class="big-note"><p>Todo: get new toothpaste</p></div>
-    <div class="big-note"><p>Prepare for trip to Chatswood</p></div>
+    {% for post_list_item in post_list %}
+    <div class="big-note"><p>{{ post_list_item.text }}</p></div>
+    {% endfor %}
     <a href="{% url 'addPost' %}"><p style="font-size: 24px">Create post</p></a>
 </div>
 
