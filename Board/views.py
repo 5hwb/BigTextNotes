@@ -11,7 +11,7 @@ def chunks(lst, n):
         yield lst[i:i + n]
 
 # Create your views here.
-def mainPage(request):
+def main_page(request):
     post_list = Post.objects.all()
     split_post_list = list(chunks(post_list, 2))
     context = {
@@ -21,12 +21,12 @@ def mainPage(request):
     }
     return render(request, 'home.html', context)
 
-def addPost(request):
+def add_post(request):
     if request.method == 'POST':
-        text = request.POST.get("postText","")
+        text = request.POST.get("post_text","")
         c = Post(text=text)
         c.save()
-        return HttpResponseRedirect(reverse_lazy('mainPage'))
+        return HttpResponseRedirect(reverse_lazy('main_page'))
 
     else:
         post_list = Post.objects.all()
@@ -36,25 +36,25 @@ def addPost(request):
         }
         return render(request, 'add_post.html', context)
 
-def editPost(request, post_pk):
+def edit_post(request, post_pk):
     if request.method == 'POST':
-        formValue = request.POST.get("save", "")
-        existingPost = Post.objects.get(id=post_pk)
-        if (formValue == "Edit"):
-            text = request.POST.get("postText","")
-            existingPost.text = text
-            existingPost.save()
-        elif (formValue == "Delete"):
-            existingPost.delete()
+        form_value = request.POST.get("save", "")
+        existing_post = Post.objects.get(id=post_pk)
+        if (form_value == "Edit"):
+            text = request.POST.get("post_text","")
+            existing_post.text = text
+            existing_post.save()
+        elif (form_value == "Delete"):
+            existing_post.delete()
 
-        return HttpResponseRedirect(reverse_lazy('mainPage'))
+        return HttpResponseRedirect(reverse_lazy('main_page'))
 
     else:
         post_list = Post.objects.all()
-        existingPost = Post.objects.get(id=post_pk)
+        existing_post = Post.objects.get(id=post_pk)
         context = {
             'title': "Home Whiteboard by 5hwb",
             'post_list': post_list,
-            'existingPost': existingPost,
+            'existing_post': existing_post,
         }
         return render(request, 'edit_post.html', context)
