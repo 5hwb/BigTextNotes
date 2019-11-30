@@ -31,7 +31,7 @@ def add_post(request):
     else:
         post_list = Post.objects.all()
         context = {
-            'title': "Home Whiteboard by 5hwb",
+            'title': "Add a new post - Home Whiteboard by 5hwb",
             'post_list': post_list,
         }
         return render(request, 'add_post.html', context)
@@ -53,7 +53,7 @@ def edit_post(request, post_pk):
         post_list = Post.objects.all()
         existing_post = Post.objects.get(id=post_pk)
         context = {
-            'title': "Home Whiteboard by 5hwb",
+            'title': "Edit post - Home Whiteboard by 5hwb",
             'post_list': post_list,
             'existing_post': existing_post,
         }

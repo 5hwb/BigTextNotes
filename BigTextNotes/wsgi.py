@@ -1,5 +1,5 @@
 """
-WSGI config for HomeWhiteboard project.
+WSGI config for BigTextNotes project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'HomeWhiteboard.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'BigTextNotes.settings')
 
 application = get_wsgi_application()
