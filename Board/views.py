@@ -1,3 +1,4 @@
+from itertools import zip_longest
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -6,9 +7,17 @@ from .models import Post
 # Create your views here.
 def mainPage(request):
     post_list = Post.objects.all()
+    num_of_posts = len(post_list)
+    post_list1 = post_list[0:num_of_posts - int(num_of_posts/2)]
+    post_list2 = post_list[int(num_of_posts/2)+1:num_of_posts]
+    print(post_list1)
+    print(post_list2)
+
+    split_post_list = list(zip_longest(post_list1, post_list2))
     context = {
         'title': "Home Whiteboard by 5hwb",
         'post_list': post_list,
+        'split_post_list': split_post_list,
     }
     return render(request, 'home.html', context)
 

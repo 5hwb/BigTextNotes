@@ -5,7 +5,43 @@
     {% for post_list_item in post_list %}
     <div class="big-note"><a href="{% url 'editPost' post_pk=post_list_item.pk %}"><p style="color: white">{{ post_list_item.text }}</p></a></div>
     {% endfor %}
+
+
+    <div id="freq-table">
+
+        {% for post_tuple in split_post_list %}
+        <div class="row">
+            <div class="col-xs-6 big-note"><p>{{ post_tuple.0.text }}</p></div>
+            <div class="col-xs-6 big-note"><p>{{ post_tuple.1.text }}</p></div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+
     <a href="{% url 'addPost' %}"><p style="font-size: 24px; color: yellow">Create post</p></a>
+
+
+    <div id="freq-table">
+
+        <div class="row">
+            <div class="col-xs-6 big-note"><p>Todo: get stuff from garage</p></div>
+            <div class="col-xs-6 big-note"><p>What is a dandy? Find out today</p></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 big-note"><p>Fix the old tablet</p></div>
+            <div class="col-xs-6 big-note"><p>Prepare for trip to nowhere in particular</p></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 big-note"><p>Find out about yeah yeah yeah yeah yeah yeah yeah yeah IKEA sale</p></div>
+            <div class="col-xs-6 big-note"><p>Decide whether to chuck old stuff in bin or not</p></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 big-note"><p>Need to get more cereal</p></div>
+            <div class="col-xs-6 big-note"><p>This should be working as expected</p></div>
+        </div>
+
+    </div>
 </div>
 
 

@@ -2,9 +2,9 @@
 	margin-bottom: 0;
 }
 body {
-	background: #3E4649;
+	background: #000;
 	color: #fff;
-	font-family: 'Montserrat', sans-serif;
+	font-family: sans-serif;
 }
 h1,
 h2 {
@@ -86,11 +86,11 @@ h2 {
 }
 .bg-colour1 {
 	color: #fff;
-	background-color: #27A967;
+	background-color: #002020;
 }
 .bg-colour2 {
 	color: #fff;
-	background-color: #006F37;
+	background-color: #200000;
 }
 
 .big-note p {
