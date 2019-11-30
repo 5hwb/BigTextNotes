@@ -29,10 +29,15 @@ def addPost(request):
 
 def editPost(request, post_pk):
     if request.method == 'POST':
-        text = request.POST.get("postText","")
+        formValue = request.POST.get("save", "")
         existingPost = Post.objects.get(id=post_pk)
-        existingPost.text = text
-        existingPost.save()
+        if (formValue == "Edit"):
+            text = request.POST.get("postText","")
+            existingPost.text = text
+            existingPost.save()
+        elif (formValue == "Delete"):
+            existingPost.delete()
+
         return HttpResponseRedirect(reverse_lazy('mainPage'))
 
     else:
