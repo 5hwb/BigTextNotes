@@ -4,16 +4,16 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse_lazy
 from .models import Post
 
+def chunks(lst, n):
+    """Yield successive n-sized chunks from lst."""
+    '''From here: https://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks'''
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]
+
 # Create your views here.
 def mainPage(request):
     post_list = Post.objects.all()
-    num_of_posts = len(post_list)
-    post_list1 = post_list[0:num_of_posts - int(num_of_posts/2)]
-    post_list2 = post_list[int(num_of_posts/2)+1:num_of_posts]
-    print(post_list1)
-    print(post_list2)
-
-    split_post_list = list(zip_longest(post_list1, post_list2))
+    split_post_list = list(chunks(post_list, 2))
     context = {
         'title': "Home Whiteboard by 5hwb",
         'post_list': post_list,
