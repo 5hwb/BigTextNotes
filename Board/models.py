@@ -5,4 +5,4 @@ class Post(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return "TEXT: '{}'".format(self.text)
+        return "id={} TEXT: '{}'".format(self.pk, self.text)

@@ -1,0 +1,14 @@
+{% extends "./base.html" %}
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <p>
+        <span style="display: inline-block;width: 70px;">Post: </span>
+        <textarea name="postText" style="width:300px; height:100px; color:black">{{ existingPost.text }}</textarea>
+    </p>
+    <p>
+        <input type="submit" value="save" style="color:black">
+    </p>
+</form>
+{% endblock %}
