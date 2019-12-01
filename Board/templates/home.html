@@ -1,5 +1,21 @@
 {% extends "./base.html" %}
 {% block content %}
+
+<script>
+    var append_increment = 0;
+    setInterval(function() {
+        $.ajax({
+            type: "GET",
+            url: "{% url 'update_posts' %}",
+            data: {'append_increment': append_increment},
+        })
+        .done(function(response) {
+            $('#post-table').replaceWith(response);
+            append_increment += 1;
+        });
+    }, 6000);
+</script>
+
 <div>
     <h1>Big Text Notes</h1>
 
