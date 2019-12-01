@@ -7,4 +7,5 @@ urlpatterns = [
     path('upd', board_views.update_posts, name='update_posts'),
     path('add_post', board_views.add_post, name='add_post'),
     path('edit_post/<int:post_pk>', board_views.edit_post, name='edit_post'),
+    path('show_all_posts', board_views.show_all_posts, name='show_all_posts'),
 ]

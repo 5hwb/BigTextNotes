@@ -76,3 +76,11 @@ def edit_post(request, post_pk):
             'existing_post': existing_post,
         }
         return render(request, 'edit_post.html', context)
+
+def show_all_posts(request):
+    post_list = Post.objects.all()
+    context = {
+        'title': "Big Text Notes by 5hwb",
+        'post_list': post_list,
+    }
+    return render(request, 'show_all_posts.html', context)
