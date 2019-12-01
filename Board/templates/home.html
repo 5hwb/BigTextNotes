@@ -1,6 +1,7 @@
 {% extends "./base.html" %}
 {% block content %}
 
+<!-- Reload the post-table div every 6 seconds. From here: https://stackoverflow.com/questions/34774138/reload-table-data-in-django-without-refreshing-the-page -->
 <script>
     var append_increment = 0;
     setInterval(function() {
