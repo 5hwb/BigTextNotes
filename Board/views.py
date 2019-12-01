@@ -21,6 +21,16 @@ def main_page(request):
     }
     return render(request, 'home.html', context)
 
+def update_posts(request):
+    increment = int(request.GET['append_increment'])
+    increment_to = increment + 1
+    print("Increment: {}".format(increment))
+    post_thingy = Post.objects.get(pk=10)
+    context = {
+        'post_thingy': post_thingy
+    }
+    return render(request, 'post_subtable.html', context)
+
 def add_post(request):
     if request.method == 'POST':
         text = request.POST.get("post_text","")
