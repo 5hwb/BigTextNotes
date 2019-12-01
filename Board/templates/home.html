@@ -10,10 +10,10 @@
             data: {'append_increment': append_increment},
         })
         .done(function(response) {
-            $('#post-table').append(response);
+            $('#post-table').replaceWith(response);
             append_increment += 1;
         });
-    }, 1000);
+    }, 6000);
 </script>
 
 <div>

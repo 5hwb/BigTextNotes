@@ -10,10 +10,13 @@ def chunks(lst, n):
     for i in range(0, len(lst), n):
         yield lst[i:i + n]
 
+chunk_size = 4
+
 # Create your views here.
 def main_page(request):
     post_list = Post.objects.all()
-    split_post_list = list(chunks(post_list, 2))
+    post_list_chunks = list(chunks(post_list, chunk_size)) # Split the post list into smaller 'chunks' of a few posts
+    split_post_list = list(chunks(post_list_chunks[0], 2)) # Split the chunks further into 2 parts to fit the GUI
     context = {
         'title': "Big Text Notes by 5hwb",
         'post_list': post_list,
@@ -22,12 +25,17 @@ def main_page(request):
     return render(request, 'home.html', context)
 
 def update_posts(request):
+    post_list = Post.objects.all()
+    post_list_chunks = list(chunks(post_list, chunk_size))
+    #print("post_list_chunks: {}".format(post_list_chunks))
+
     increment = int(request.GET['append_increment'])
-    increment_to = increment + 1
-    print("Increment: {}".format(increment))
-    post_thingy = Post.objects.get(pk=10)
+    increment_to = (increment + 1) % len(post_list_chunks)
+    #print("Increment: {}".format(increment))
+
+    split_post_list = list(chunks(post_list_chunks[increment_to], 2))
     context = {
-        'post_thingy': post_thingy
+        'split_post_list': split_post_list,
     }
     return render(request, 'post_subtable.html', context)
 
