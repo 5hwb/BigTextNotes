@@ -2,7 +2,7 @@
 {% load bootstrap4 %}
 
 <!DOCTYPE html>
-<!-- Source: https://www.taniarascia.com/what-is-bootstrap-and-how-do-i-use-it/ -->
+<!-- Based on content from: https://www.taniarascia.com/what-is-bootstrap-and-how-do-i-use-it/ -->
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -18,6 +18,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
 </head>
+
+<!-- TOP NAVIGATION BAR -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-brand">Big Text Notes</div>
+    <div class="navbar-header">
+        <a class="nav-item nav-link btn btn-navbar">Create post</a>
+        <a class="nav-item nav-link btn btn-navbar">Show all posts</a>
+    </div>
+</nav>
+
 <body>
 
 {% block content %}
