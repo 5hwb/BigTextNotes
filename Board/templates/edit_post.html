@@ -2,16 +2,12 @@
 {% block content %}
 <form method="post" enctype="multipart/form-data" class="big-note">
     {% csrf_token %}
-
-    <p>
-        <span style="display: inline-block">Post: </span>
-        <textarea name="post_text" style="color:black">{{ existing_post.text }}</textarea>
-    </p>
-    <p>
-        <input name="save" type="submit" value="Edit" style="color:black">
-    </p>
-    <p>
-        <input name="save" type="submit" value="Delete" style="color:black">
-    </p>
+    
+    <div class="form-group">
+      <label for="inputTextPost">Text post to edit</label>
+      <textarea class="form-control" name="post_text" id="inputTextPost" rows="3" placeholder="Type your edited post here.">{{ existing_post.text }}</textarea>
+      <button name="save" type="submit" value="Edit" class="btn btn-primary">Edit</button>
+      <button name="save" type="submit" value="Delete" class="btn btn-primary">Delete</button>
+    </div>
 </form>
 {% endblock %}
