@@ -26,13 +26,13 @@ h2 {
 	color: white;
 	font-size: 26px;
 }
-.btn-navbar {
+.btn {
 	font-size: 18px;
 	color: yellow;
 	background-color: transparent;
 	border-color: yellow;
 }
-.btn-navbar:hover {
+.btn:hover {
 	color: white;
 	background-color: red;
 	border-color: white;

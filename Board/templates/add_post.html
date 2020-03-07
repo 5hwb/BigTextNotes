@@ -2,13 +2,20 @@
 {% block content %}
 <form method="post" enctype="multipart/form-data" class="big-note">
     {% csrf_token %}
+    
+    <div class="form-group">
+      <label for="inputTextPost">Text post</label>
+      <textarea class="form-control" name="post_text" id="inputTextPost" rows="3" placeholder="Type your post here."></textarea>
+      <button type="submit" class="btn">Save</button>
+    </div>
 
     <p>
         <span style="display: inline-block">Post: </span>
-        <textarea name="post_text" style="color:black"></textarea>
+        <textarea style="color:black"></textarea>
     </p>
     <p>
-        <input type="submit" value="save" style="color:black">
+        <input type="submit" value="Save" style="color:black">
     </p>
 </form>
+
 {% endblock %}
