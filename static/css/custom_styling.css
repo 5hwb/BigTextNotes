@@ -3,7 +3,7 @@
 	display: flex;
 	align-items: center;
 }
-.navbar .navbar-brand {
+.navbar .navbar-brand a {
 	font-size: 24px;
 	color: white;
 	font-weight: bold;

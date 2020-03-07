@@ -21,7 +21,9 @@
 
 <!-- TOP NAVIGATION BAR -->
 <nav class="navbar navbar-inverse navbar-static-top">
-    <div class="navbar-brand">Big Text Notes</div>
+    <div class="navbar-brand">
+      <a href="{% url 'main_page' %}">Big Text Notes</a>
+    </div>
     <div class="navbar-header">
         <a class="nav-item nav-link btn btn-navbar" href="{% url 'add_post' %}">Create post</a>
         <a class="nav-item nav-link btn btn-navbar" href="{% url 'show_all_posts' %}">Show all posts</a>
