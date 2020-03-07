@@ -26,22 +26,16 @@ h2 {
 	color: white;
 	font-size: 26px;
 }
-.btn-primary {
-	color: #fff;
-	background-color: transparent;
-	border-color: white;
-	margin-bottom: 5px;
-}
-.btn-primary:hover {
-	color: #27A967;
-	background-color: white;
-	border-color: white;
-}
 .btn-navbar {
 	font-size: 18px;
 	color: yellow;
-	background-color: inherit;
+	background-color: transparent;
 	border-color: yellow;
+}
+.btn-navbar:hover {
+	color: white;
+	background-color: red;
+	border-color: white;
 }
 .navbar-inverse {
 	background: #008;
