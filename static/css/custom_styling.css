@@ -3,6 +3,11 @@
 	display: flex;
 	align-items: center;
 }
+.navbar .navbar-brand {
+	font-size: 24px;
+	color: white;
+	font-weight: bold;
+}
 body {
 	background: #000;
 	color: #fff;
@@ -33,12 +38,13 @@ h2 {
 	border-color: white;
 }
 .btn-navbar {
-	color: #fff;
-	background-color: #FF0000;
-	align-content: center;
+	font-size: 18px;
+	color: yellow;
+	background-color: inherit;
+	border-color: yellow;
 }
 .navbar-inverse {
-	background: #2E2F31;
+	background: #008;
 	border: 0;
 }
 .navbar-inverse .navbar-nav li a {
@@ -78,10 +84,6 @@ h2 {
     display: block;
     height: 0;
     overflow-y: hidden;
-}
-.nav-link {
-	color: #fff;
-	background-color: #FF0000;
 }
 
 .freq-results {
