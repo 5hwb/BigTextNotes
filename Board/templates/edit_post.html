@@ -6,6 +6,18 @@
     <div class="form-group">
       <label for="inputTextPost">Text post to edit</label>
       <textarea class="form-control" name="post_text" id="inputTextPost" rows="3" placeholder="Type your edited post here.">{{ existing_post.text }}</textarea>
+      <label for="inputTextColour">Text colour</label>
+      <select id="inputTextColour" class="form-control">
+        <option selected>{{ existing_post.text_colour }}</option>
+        <option>todo</option>
+      </select>
+      
+      <label for="inputBgColour">Background colour</label>
+      <select id="inputBgColour" class="form-control">
+        <option selected>{{ existing_post.bg_colour }}</option>
+        <option>todo</option>
+      </select>
+      
       <button name="save" type="submit" value="Edit" class="btn btn-primary">Edit</button>
       <button name="save" type="submit" value="Delete" class="btn btn-primary">Delete</button>
     </div>
