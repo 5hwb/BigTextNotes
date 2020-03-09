@@ -51,6 +51,8 @@ def add_post(request):
         context = {
             'title': "Add a new post - Big Text Notes by 5hwb",
             'post_list': post_list,
+            'TEXT_COLOUR_CHOICES': Post.TEXT_COLOUR_CHOICES,
+            'BG_COLOUR_CHOICES': Post.BG_COLOUR_CHOICES,
         }
         return render(request, 'add_post.html', context)
 
@@ -74,6 +76,8 @@ def edit_post(request, post_pk):
             'title': "Edit post - Big Text Notes by 5hwb",
             'post_list': post_list,
             'existing_post': existing_post,
+            'TEXT_COLOUR_CHOICES': Post.TEXT_COLOUR_CHOICES,
+            'BG_COLOUR_CHOICES': Post.BG_COLOUR_CHOICES,
         }
         return render(request, 'edit_post.html', context)
 
