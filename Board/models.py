@@ -8,7 +8,7 @@ class Post(models.Model):
     ]
     BG_COLOUR_CHOICES = [
         ('000000', 'Black'),
-        ('000080', 'Dark blue'),
+        ('000050', 'Dark blue'),
     ]
 
     text = models.TextField()
