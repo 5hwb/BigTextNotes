@@ -3,11 +3,11 @@
 
     {% for post_tuple in split_post_list %}
     <div class="row">
-        <div class="col-xs-6 big-note"><a href="{% url 'edit_post' post_pk=post_tuple.0.pk %}"><p style="color: white">{{ post_tuple.0.text }}</p></a></div>
+        <div class="col-xs-6 big-note"><a href="{% url 'edit_post' post_pk=post_tuple.0.pk %}"><p style="color: #{{ post_tuple.0.text_colour }}; background-color: #{{ post_tuple.0.bg_colour }}">{{ post_tuple.0.text }}</p></a></div>
 
         <!-- Check to see if 2nd element in tuple exists -->
         {% if post_tuple.1 %}
-        <div class="col-xs-6 big-note"><a href="{% url 'edit_post' post_pk=post_tuple.1.pk %}"><p style="color: white">{{ post_tuple.1.text }}</p></a></div>
+        <div class="col-xs-6 big-note"><a href="{% url 'edit_post' post_pk=post_tuple.1.pk %}"><p style="color: #{{ post_tuple.1.text_colour }}; background-color: #{{ post_tuple.1.bg_colour }}">{{ post_tuple.1.text }}</p></a></div>
         {% else %}
         <div class="col-xs-6 big-note"></div>
         {% endif %}
