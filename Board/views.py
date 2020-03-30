@@ -62,7 +62,11 @@ def edit_post(request, post_pk):
         existing_post = Post.objects.get(id=post_pk)
         if (form_value == "Edit"):
             text = request.POST.get("post_text","")
+            text_colour = request.POST.get("post_text_colour","")
+            bg_colour = request.POST.get("post_bg_colour","")
             existing_post.text = text
+            existing_post.text_colour = text_colour
+            existing_post.bg_colour = bg_colour
             existing_post.save()
         elif (form_value == "Delete"):
             existing_post.delete()

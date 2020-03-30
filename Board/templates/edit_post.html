@@ -7,20 +7,20 @@
       <label for="inputTextPost">Text post to edit</label>
       <textarea class="form-control" name="post_text" id="inputTextPost" rows="3" placeholder="Type your edited post here.">{{ existing_post.text }}</textarea>
       <label for="inputTextColour">Text colour</label>
-      <select id="inputTextColour" class="form-control">
+      <select id="inputTextColour" name="post_text_colour" class="form-control">
         <option selected>{{ existing_post.text_colour }}</option>
         {% for colour in TEXT_COLOUR_CHOICES %}
-        <option>{{ colour.1 }}</option>
+        <option value="{{ colour.0 }}">{{ colour.1 }}</option>
         {% endfor %}
       </select>
       
       <label for="inputBgColour">Background colour</label>
-      <select id="inputBgColour" class="form-control">
+      <select id="inputBgColour" name="post_bg_colour" class="form-control">
         <option selected>{{ existing_post.bg_colour }}</option>
         {% for colour in BG_COLOUR_CHOICES %}
-        <option>{{ colour.1 }}</option>
+        <option value="{{ colour.0 }}">{{ colour.1 }}</option>
         {% endfor %}
-        </select>
+      </select>
       
       <button name="save" type="submit" value="Edit" class="btn btn-primary">Edit</button>
       <button name="save" type="submit" value="Delete" class="btn btn-primary">Delete</button>
