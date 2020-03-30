@@ -4,10 +4,17 @@ from django.db import models
 class Post(models.Model):
     TEXT_COLOUR_CHOICES = [
         ('ffffff', 'White'),
-        ('ffff00', 'Yellow'),
+        ('ffb45e', 'Light orange'),
+        ('ffffa0', 'Light yellow'),
+        ('a0ffa0', 'Light green'),
+        ('88c2ff', 'Light blue'),
+        
     ]
     BG_COLOUR_CHOICES = [
         ('000000', 'Black'),
+        ('500000', 'Dark red'),
+        ('502800', 'Brown'),
+        ('005000', 'Dark green'),
         ('000050', 'Dark blue'),
     ]
 
