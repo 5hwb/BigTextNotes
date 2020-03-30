@@ -5,7 +5,30 @@
     
     <div class="form-group">
       <label for="inputTextPost">Text post</label>
-      <textarea class="form-control" name="post_text" id="inputTextPost" rows="3" placeholder="Type your post here."></textarea>
+      <textarea class="form-control" id="inputTextPost" name="post_text" rows="3" placeholder="Type your post here."></textarea>
+
+      <label for="inputTextColour">Text colour</label>
+      <select class="form-control" id="inputTextColour" name="post_text_colour">
+        {% for colour in TEXT_COLOUR_CHOICES %}
+          {% if colour.0 == existing_post.text_colour %}
+            <option value="{{ colour.0 }}" selected>{{ colour.1 }}</option>
+          {% else %}
+            <option value="{{ colour.0 }}">{{ colour.1 }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+      
+      <label for="inputBgColour">Background colour</label>
+      <select class="form-control" id="inputBgColour" name="post_bg_colour">
+        {% for colour in BG_COLOUR_CHOICES %}
+          {% if colour.0 == existing_post.bg_colour %}
+            <option value="{{ colour.0 }}" selected>{{ colour.1 }}</option>
+          {% else %}
+            <option value="{{ colour.0 }}">{{ colour.1 }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+      
       <button type="submit" class="btn btn-primary">Save</button>
     </div>
 </form>

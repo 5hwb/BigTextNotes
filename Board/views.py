@@ -42,7 +42,12 @@ def update_posts(request):
 def add_post(request):
     if request.method == 'POST':
         text = request.POST.get("post_text","")
-        c = Post(text=text)
+        text_colour = request.POST.get("post_text_colour","")
+        bg_colour = request.POST.get("post_bg_colour","")
+        c = Post(
+            text=text,
+            text_colour=text_colour,
+            bg_colour=bg_colour)
         c.save()
         return HttpResponseRedirect(reverse_lazy('main_page'))
 
