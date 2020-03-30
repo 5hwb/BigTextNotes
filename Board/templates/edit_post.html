@@ -5,10 +5,10 @@
     
     <div class="form-group">
       <label for="inputTextPost">Text post to edit</label>
-      <textarea class="form-control" name="post_text" id="inputTextPost" rows="3" placeholder="Type your edited post here.">{{ existing_post.text }}</textarea>
+      <textarea class="form-control" id="inputTextPost" name="post_text" rows="3" placeholder="Type your edited post here.">{{ existing_post.text }}</textarea>
       
       <label for="inputTextColour">Text colour</label>
-      <select id="inputTextColour" name="post_text_colour" class="form-control">
+      <select class="form-control" id="inputTextColour" name="post_text_colour">
         {% for colour in TEXT_COLOUR_CHOICES %}
           {% if colour.0 == existing_post.text_colour %}
             <option value="{{ colour.0 }}" selected>{{ colour.1 }}</option>
@@ -19,7 +19,7 @@
       </select>
       
       <label for="inputBgColour">Background colour</label>
-      <select id="inputBgColour" name="post_bg_colour" class="form-control">
+      <select class="form-control" id="inputBgColour" name="post_bg_colour">
         {% for colour in BG_COLOUR_CHOICES %}
           {% if colour.0 == existing_post.bg_colour %}
             <option value="{{ colour.0 }}" selected>{{ colour.1 }}</option>
