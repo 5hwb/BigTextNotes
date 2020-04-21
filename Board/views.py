@@ -5,26 +5,35 @@ from django.urls import reverse_lazy
 from .models import Post
 
 def chunks(lst, n):
-    """Yield successive n-sized chunks from lst."""
+    '''Yield successive n-sized chunks from lst.'''
     '''From here: https://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks'''
     for i in range(0, len(lst), n):
         yield lst[i:i + n]
 
+# Number of posts to show in home page
 chunk_size = 4
 
-# Create your views here.
+# Web app title
+app_title = "Big Text Notes by 5hwb"
+
 def main_page(request):
+    '''
+    Show the home page
+    '''
     post_list = Post.objects.all()
     post_list_chunks = list(chunks(post_list, chunk_size)) # Split the post list into smaller 'chunks' of a few posts
     split_post_list = list(chunks(post_list_chunks[0], 2)) # Split the chunks further into 2 parts to fit the GUI
     context = {
-        'title': "Big Text Notes by 5hwb",
+        'title': app_title,
         'post_list': post_list,
         'split_post_list': split_post_list,
     }
     return render(request, 'home.html', context)
 
 def update_posts(request):
+    '''
+    Show the post update page
+    '''
     post_list = Post.objects.all()
     post_list_chunks = list(chunks(post_list, chunk_size))
     #print("post_list_chunks: {}".format(post_list_chunks))
@@ -40,6 +49,9 @@ def update_posts(request):
     return render(request, 'post_subtable.html', context)
 
 def add_post(request):
+    '''
+    Show the post creation page
+    '''
     if request.method == 'POST':
         text = request.POST.get("post_text","")
         text_colour = request.POST.get("post_text_colour","")
@@ -54,7 +66,7 @@ def add_post(request):
     else:
         post_list = Post.objects.all()
         context = {
-            'title': "Add a new post - Big Text Notes by 5hwb",
+            'title': "Add a new post - " + app_title,
             'post_list': post_list,
             'TEXT_COLOUR_CHOICES': Post.TEXT_COLOUR_CHOICES,
             'BG_COLOUR_CHOICES': Post.BG_COLOUR_CHOICES,
@@ -62,6 +74,9 @@ def add_post(request):
         return render(request, 'add_post.html', context)
 
 def edit_post(request, post_pk):
+    '''
+    Show the post editing page
+    '''
     if request.method == 'POST':
         form_value = request.POST.get("save", "")
         existing_post = Post.objects.get(id=post_pk)
@@ -82,7 +97,7 @@ def edit_post(request, post_pk):
         post_list = Post.objects.all()
         existing_post = Post.objects.get(id=post_pk)
         context = {
-            'title': "Edit post - Big Text Notes by 5hwb",
+            'title': "Edit post - " + app_title,
             'post_list': post_list,
             'existing_post': existing_post,
             'TEXT_COLOUR_CHOICES': Post.TEXT_COLOUR_CHOICES,
@@ -91,9 +106,12 @@ def edit_post(request, post_pk):
         return render(request, 'edit_post.html', context)
 
 def show_all_posts(request):
+    '''
+    Show the 'all posts' page
+    '''
     post_list = Post.objects.all()
     context = {
-        'title': "Big Text Notes by 5hwb",
+        'title': "All posts - " + app_title,
         'post_list': post_list,
     }
     return render(request, 'show_all_posts.html', context)
